@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Lễ Hội Hoa Anh Đào Gigamall 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --white: #ffffff;
+            --pink: #FF69B4;
+            --pink-light: #FFB6C1;
+            --pink-dark: #FF1493;
+            --purple: #9B59B6;
+            --purple-light: #D8B4FE;
+            --purple-dark: #6C3483;
+            --sky-blue: #87CEEB;
+            --sky-gradient: linear-gradient(135deg, #87CEEB 0%, #E0F7FA 100%);
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--sky-gradient);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Hiệu ứng cánh hoa rơi */
+        .sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .sakura {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,105,180,0.8);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--purple-dark);
+            font-size: 1.1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .language-switch {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .lang-btn {
+            padding: 0.3rem 0.8rem;
+            border: 1px solid var(--pink);
+            background: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background: var(--pink);
+            color: white;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .user-menu i {
+            font-size: 1.5rem;
+            color: var(--pink);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 5% 5%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,182,193,0.7) 100%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .free-entry {
+            background: var(--purple);
+            color: white;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--purple-dark);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--pink-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Timeline */
+        .timeline-section {
+            padding: 5% 5%;
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .timeline-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: var(--purple-dark);
+        }
+        
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .timeline-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-date {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content {
+            padding: 1.5rem;
+        }
+        
+        .activities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .activity-item {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid var(--pink);
+        }
+        
+        .activity-item:hover {
+            background: var(--pink-light);
+        }
+        
+        /* Buttons */
+        .btn-primary, .btn-secondary {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--pink);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--purple);
+        }
+        
+        .btn-secondary {
+            background: var(--purple);
+            color: white;
+        }
+        
+        /* Yukata Section */
+        .yukata-section {
+            padding: 5% 5%;
+            background: linear-gradient(135deg, rgba(255,182,193,0.3), rgba(155,89,182,0.3));
+        }
+        
+        .yukata-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--purple-dark);
+        }
+        
+        .yukata-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .yukata-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Reviews */
+        .reviews-section {
+            padding: 5% 5%;
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .review-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--pink);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--purple);
+            font-weight: 600;
+        }
+        
+        /* Chat Box */
+        .chat-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            z-index: 1000;
+        }
+        
+        .chat-header {
+            background: var(--pink);
+            color: white;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-body {
+            background: white;
+            border-radius: 0 0 15px 15px;
+            display: none;
+            flex-direction: column;
+            height: 400px;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .message.user {
+            background: var(--pink-light);
+            margin-left: auto;
+        }
+        
+        .message.bot {
+            background: #f0f0f0;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        
+        .chat-input button {
+            background: var(--pink);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--purple-dark);
+            color: white;
+            padding: 3rem 5%;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .social-icon {
+            font-size: 2rem;
+            color: var(--purple-dark);
+            transition: color 0.3s;
+        }
+        
+        /* Form */
+        #review-form input, #review-form select, #review-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sakura-container"></div>
+
+<!-- Navbar -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <span>🌸 Sakura Fest 2026</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Trang chủ</a>
+            <a href="#timeline">Sự kiện</a>
+            <a href="#yukata">Yukata</a>
+            <a href="#reviews">Đánh giá</a>
+        </div>
+        <div class="language-switch">
+            <button class="lang-btn active" onclick="changeLanguage('vi')">VI</button>
+            <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="changeLanguage('jp')">JP</button>
+        </div>
+        <div class="user-menu" onclick="checkLogin()">
+            <i class="fas fa-user-circle"></i>
+            <span id="username-display">Tài khoản</span>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="free-entry">
+                <i class="fas fa-ticket-alt"></i>
+                <span>🎫 VÀO CỬA MIỄN PHÍ</span>
+            </div>
+            <h1>🌸 LỄ HỘI HOA ANH ĐÀO GIGAMALL 2026</h1>
+            <h2>"CUNG ĐƯỜNG VÀNG SAKURA"</h2>
+            <p>Sự kiện văn hóa Nhật Bản được mong chờ nhất năm tại TTTM Gigamall. Hứa hẹn mang đến một không gian rực rỡ, kết hợp giữa truyền thống huyền ảo và công nghệ tương lai đỉnh cao!</p>
+            <div class="hero-info">
+                <div class="info-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>📅 21/03 – 03/05/2026</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>📍 Sảnh Phạm Văn Đồng – TTTM Gigamall</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="timeline-section">
+        <h2>🌸 LỄ HỘI HOA ANH ĐÀO 2026 "CUNG ĐƯỜNG VÀNG SAKURA"</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">🌸 21.3 - 29.3: LỄ HỘI NGẮM HOA HANAMI</div>
+                <div class="timeline-content">
+                    <div class="activities-list">
+                        <div class="activity-item" onclick="showActivity('Liveshow Cosplay', 'Miễn phí', 'Trình diễn catwalk từ các coser chuyên nghiệp')">
+                            <div class="activity-name">🎭 Liveshow Cosplay</div>
+                            <div class="activity-price">Miễn phí</div>
+                        </div>
+                        <div class="activity-item" onclick="showActivity('Bắn pháo hoa', 'Miễn phí', 'Màn pháo hoa rực rỡ khai mạc lễ hội')">
+                            <div class="activity-name">🎆 Bắn pháo hoa</div>
+                            <div class="activity-price">Miễn phí</div>
+                        </div>
+                        <div class="activity-item" onclick="showActivity('Múa Yosakoi', 'Miễn phí', 'Điệu múa truyền thống Nhật Bản')">
+                            <div class="activity-name">💃 Múa Yosakoi</div>
+                            <div class="activity-price">Miễn phí</div>
+                        </div>
+                        <div class="activity-item" onclick="showActivity('Robot Nhật Bản', 'Miễn phí', 'Trải nghiệm robot AI tương tác')">
+                            <div class="activity-name">🤖 Robot Nhật Bản</div>
+                            <div class="activity-price">Miễn phí</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">🍜 30.3 - 12.4: LỄ HỘI ẨM THỰC NHẬT BẢN</div>
+                <div class="timeline-content">
+                    <div class="activities-list">
+                        <div class="activity-item" onclick="showActivity('Workshop Trà Matcha', '30,000đ', 'Học pha trà Matcha truyền thống')">
+                            <div class="activity-name">🍵 Workshop Trà Matcha</div>
+                            <div class="activity-price">30,000đ</div>
+                        </div>
+                        <div class="activity-item" onclick="showActivity('Tạo hình đất sét', '40,000đ', 'Nặn hình món ăn Nhật Bản')">
+                            <div class="activity-name">🎨 Tạo hình đất sét</div>
+                            <div class="activity-price">40,000đ</div>
+                        </div>
+                        <div class="activity-item" onclick="showActivity('Ẩm thực đường phố', '20,000-100,000đ', 'Thưởng thức đặc sản Nhật')">
+                            <div class="activity-name">🍣 Ẩm thực đường phố</div>
+                            <div class="activity-price">20,000-100,000đ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yukata Section -->
+    <section id="yukata" class="yukata-section">
+        <h2>👘 Trải Nghiệm Yukata</h2>
+        <div class="yukata-container">
+            <div class="yukata-card">
+                <h3>🎨 Design Your Yukata</h3>
+                <p>Tự thiết kế bộ Yukata độc đáo của riêng bạn!</p>
+                <button class="btn-primary" onclick="designYukata()">Thiết kế ngay</button>
+            </div>
+            <div class="yukata-card">
+                <h3>📸 Rent Your Yukata</h3>
+                <p>Thuê Yukata và trải nghiệm AI thử đồ thông minh</p>
+                <button class="btn-primary" onclick="rentYukata()">Thuê ngay</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <h2>💬 Khách hàng nói gì về chúng tôi</h2>
+        <div class="reviews-container" id="reviews-container"></div>
+        
+        <div class="add-review">
+            <h3>✨ Chia sẻ cảm nhận của bạn</h3>
+            <form id="review-form" onsubmit="addReview(event)">
+                <select id="review-gender" required>
+                    <option value="">Chọn giới tính</option>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+                <input type="number" id="review-age" placeholder="Tuổi" required>
+                <input type="text" id="review-ward" placeholder="Phường/Xã tại TP.HCM" required>
+                <textarea id="review-text" placeholder="Chia sẻ cảm nghĩ của bạn..." rows="3" required></textarea>
+                <button type="submit" class="btn-secondary">💬 Gửi đánh giá</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>🏢 TRUNG TÂM THƯƠNG MẠI GIGAMALL</h3>
+            <p>240-242 Phạm Văn Đồng, P. Hiệp Bình, TP. Thủ Đức, TP.HCM</p>
+            <p>📞 (028) 7100 3839 | 7109 3839</p>
+            <p>📧 dvkh@gigamall.com.vn</p>
+        </div>
+        <div>
+            <h4>⏰ Thời gian hoạt động</h4>
+            <p>Thứ Hai - Thứ Sáu | 9:30 - 22:00</p>
+            <p>Thứ Bảy & Chủ Nhật | 9:00 - 22:00</p>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/gigamallvietnam/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gigamall_vietnam/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@GigamallVietnam" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+
+<!-- Chat Box -->
+<div class="chat-box">
+    <div class="chat-header" onclick="toggleChat()">
+        <span>🤖 Trợ lý ảo Sakura</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="chat-body" id="chat-body" style="display:none;">
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">🌸 Chào bạn! Tôi là trợ lý ảo của Lễ hội Hoa Anh Đào. Bạn cần giúp gì ạ?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Nhập câu hỏi...">
+            <button onclick="sendMessage()">📤</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="activity-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-content"></div>
+    </div>
+</div>
+
+<script>
+    // ========== AUTHENTICATION ==========
+    function checkLogin() {
+        const user = localStorage.getItem('username');
+        if (user) {
+            alert(`👋 Chào ${user}! Bạn đã đăng nhập.`);
+        } else {
+            const action = confirm('🔐 Bạn chưa đăng nhập! Nhấn OK để đăng nhập hoặc Cancel để đăng ký.');
+            if (action) {
+                loginPrompt();
+            } else {
+                registerPrompt();
+            }
+        }
+    }
+    
+    function loginPrompt() {
+        const username = prompt('👤 Tên đăng nhập:');
+        const password = prompt('🔒 Mật khẩu:');
+        if (username && password) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', user.fullName);
+                document.getElementById('username-display').innerText = user.fullName;
+                alert('✅ Đăng nhập thành công!');
+            } else {
+                alert('❌ Sai tên đăng nhập hoặc mật khẩu!');
+            }
+        }
+    }
+    
+    function registerPrompt() {
+        const fullName = prompt('👤 Họ và tên:');
+        const email = prompt('📧 Email:');
+        const phone = prompt('📱 Số điện thoại:');
+        const username = prompt('🔑 Tên đăng nhập:');
+        const password = prompt('🔒 Mật khẩu:');
+        
+        if (fullName && email && phone && username && password) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push({ fullName, email, phone, username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('✅ Đăng ký thành công! Vui lòng đăng nhập.');
+            loginPrompt();
+        }
+    }
+    
+    // ========== LANGUAGE ==========
+    function changeLanguage(lang) {
+        const texts = {
+            vi: {
+                title: '🌸 LỄ HỘI HOA ANH ĐÀO GIGAMALL 2026',
+                subtitle: '"CUNG ĐƯỜNG VÀNG SAKURA"'
+            },
+            en: {
+                title: '🌸 GIGAMALL SAKURA FESTIVAL 2026',
+                subtitle: '"GOLDEN SAKURA PATH"'
+            },
+            jp: {
+                title: '🌸 2026年 ギガモール桜祭り',
+                subtitle: '"黄金の桜道"'
+            }
+        };
+        
+        document.querySelector('h1').innerText = texts[lang].title;
+        document.querySelector('h2').innerText = texts[lang].subtitle;
+        localStorage.setItem('language', lang);
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+    
+    // ========== ACTIVITIES ==========
+    function showActivity(name, price, desc) {
+        const modal = document.getElementById('activity-modal');
+        const modalContent = document.getElementById('modal-content');
+        
+        modalContent.innerHTML = `
+            <h3>🌸 ${name}</h3>
+            <p><strong>💰 Chi phí:</strong> ${price}</p>
+            <p><strong>📝 Mô tả:</strong> ${desc}</p>
+            <button class="btn-primary" onclick="registerActivity('${name}', '${price}')">📝 Đăng ký ngay</button>
+        `;
+        modal.style.display = 'block';
+    }
+    
+    function registerActivity(name, price) {
+        const user = localStorage.getItem('username');
+        if (!user) {
+            alert('🔐 Vui lòng đăng nhập trước khi đăng ký!');
+            closeModal();
+            checkLogin();
+            return;
+        }
+        
+        const email = prompt('📧 Nhập email để nhận xác nhận:');
+        if (email) {
+            alert(`✅ Đăng ký thành công!\n📨 Email xác nhận đã gửi đến ${email}\n🎉 Chào mừng bạn tham gia: ${name}`);
+            
+            // Lưu lịch sử
+            let history = JSON.parse(localStorage.getItem('activityHistory') || '[]');
+            history.push({ activity: name, date: new Date().toLocaleString(), user: user });
+            localStorage.setItem('activityHistory', JSON.stringify(history));
+            
+            closeModal();
+        }
+    }
+    
+    // ========== YUKATA ==========
+    function designYukata() {
+        const modal = document.getElementById('activity-modal');
+        const modalContent = document.getElementById('modal-content');
+        
+        modalContent.innerHTML = `
+            <h3>🎨 Thiết kế Yukata của riêng bạn</h3>
+            <p><strong>Màu sắc:</strong></p>
+            <input type="color" id="yukata-color" value="#FF69B4" style="width:100%; margin:10px 0;">
+            <p><strong>Họa tiết:</strong></p>
+            <select id="yukata-pattern" style="width:100%; padding:10px; margin:10px 0;">
+                <option value="hoa-anh-dao">🌸 Hoa Anh Đào</option>
+                <option value="hoa-cuc">🌼 Hoa Cúc</option>
+                <option value="song-nuoc">🌊 Sóng Nước</option>
+            </select>
+            <p><strong>📸 Tải ảnh lên:</strong></p>
+            <input type="file" id="yukata-image" style="margin:10px 0;">
+            <button class="btn-primary" onclick="submitDesign()">📞 Liên hệ may đo</button>
+        `;
+        modal.style.display = 'block';
+    }
+    
+    function submitDesign() {
+        alert('✅ Cảm ơn bạn! BTC sẽ liên hệ trong vòng 24h để tư vấn may đo Yukata.');
+        closeModal();
+    }
+    
+    function rentYukata() {
+        alert('👘 Dịch vụ thuê Yukata: \n- Gói Truyền Thống: 50,000đ/giờ\n- Combo 1 người: 100,000đ\n- Combo 2 người: 140,000đ\n\nVui lòng đến gian hàng Mystical Yukata Shop tại lễ hội!');
+    }
+    
+    // ========== REVIEWS ==========
+    const defaultReviews = [
+        { gender: 'Nữ', age: 25, ward: 'Phường 1, Quận 1', text: 'Không gian lễ hội tuyệt đẹp! Hoa anh đào nở rực rỡ, rất nhiều hoạt động thú vị.' },
+        { gender: 'Nam', age: 30, ward: 'Phường Bình Trưng Tây, Quận 2', text: 'Trải nghiệm Cosplay rất chuyên nghiệp. Ban tổ chức nhiệt tình, chu đáo!' },
+        { gender: 'Nữ', age: 22, ward: 'Phường 15, Quận Tân Bình', text: 'Workshop manga siêu hay! Được tự tay thiết kế nhân vật yêu thích.' },
+        { gender: 'Nữ', age: 28, ward: 'Phường Hiệp Bình Chánh, Thủ Đức', text: 'Đồ ăn Nhật ngon, giá cả phải chăng. Không gian check-in cực chất!' },
+        { gender: 'Nam', age: 35, ward: 'Phường 22, Quận Bình Thạnh', text: 'Nhà ma hơi rén nhưng rất hấp dẫn! Cốt truyện hay, diễn viên nhập vai quá đỉnh!' }
+    ];
+    
+    function loadReviews() {
+        const reviews = JSON.parse(localStorage.getItem('customerReviews') || JSON.stringify(defaultReviews));
+        const container = document.getElementById('reviews-container');
+        
+        container.innerHTML = reviews.map(review => `
+            <div class="review-card">
+                <div class="review-header">
+                    <span>${review.gender}, ${review.age} tuổi</span>
+                    <span>📍 ${review.ward}</span>
+                </div>
+                <div class="review-text">"${review.text}"</div>
+            </div>
+        `).join('');
+    }
+    
+    function addReview(event) {
+        event.preventDefault();
+        const gender = document.getElementById('review-gender').value;
+        const age = document.getElementById('review-age').value;
+        const ward = document.getElementById('review-ward').value;
+        const text = document.getElementById('review-text').value;
+        
+        const reviews = JSON.parse(localStorage.getItem('customerReviews') || JSON.stringify(defaultReviews));
+        reviews.unshift({ gender, age, ward, text });
+        localStorage.setItem('customerReviews', JSON.stringify(reviews));
+        
+        loadReviews();
+        document.getElementById('review-form').reset();
+        alert('💖 Cảm ơn bạn đã chia sẻ trải nghiệm!');
+    }
+    
+    // ========== CHAT ==========
+    function toggleChat() {
+        const chatBody = document.getElementById('chat-body');
+        chatBody.style.display = chatBody.style.display === 'none' ? 'flex' : 'none';
+    }
+    
+    function sendMessage() {
+        const input = document.getElementById('chat-input');
+        const message = input.value.trim();
+        if (!message) return;
+        
+        const messagesDiv = document.getElementById('chat-messages');
+        messagesDiv.innerHTML += `<div class="message user">${message}</div>`;
+        
+        // AI response
+        setTimeout(() => {
+            let response = getAIResponse(message);
+            messagesDiv.innerHTML += `<div class="message bot">🤖 ${response}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }, 500);
+        
+        input.value = '';
+    }
+    
+    function getAIResponse(msg) {
+        const lowerMsg = msg.toLowerCase();
+        if (lowerMsg.includes('giờ mở cửa') || lowerMsg.includes('thời gian')) {
+            return '⏰ Lễ hội mở cửa từ 9:00 - 22:00 tất cả các ngày trong tuần nhé!';
+        }
+        if (lowerMsg.includes('giá') || lowerMsg.includes('vé')) {
+            return '💰 Vào cửa hoàn toàn MIỄN PHÍ! Chỉ một số hoạt động trải nghiệm có tính phí nhẹ (20,000 - 100,000đ).';
+        }
+        if (lowerMsg.includes('địa chỉ') || lowerMsg.includes('ở đâu')) {
+            return '📍 Tại TTTM Gigamall, 240-242 Phạm Văn Đồng, P. Hiệp Bình, TP. Thủ Đức, TP.HCM';
+        }
+        if (lowerMsg.includes('yukata')) {
+            return '👘 Có 2 hình thức: Thiết kế online miễn phí hoặc thuê tại gian hàng với giá từ 40,000đ - 50,000đ/giờ';
+        }
+        if (lowerMsg.includes('cosplay')) {
+            return '🎭 Giải thưởng Cosplay Contest lên đến 70,000,000đ! Đăng ký ngay để tham gia nhé!';
+        }
+        if (lowerMsg.includes('cảm ơn')) {
+            return '🌸 Cảm ơn bạn! Chúc bạn có trải nghiệm tuyệt vời tại lễ hội!';
+        }
+        return '🌸 Cảm ơn bạn đã quan tâm! Bạn có thể hỏi tôi về: giờ mở cửa, giá vé, địa chỉ, yukata, cosplay... hoặc bất kỳ thông tin gì về lễ hội nhé!';
+    }
+    
+    // ========== UTILITIES ==========
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+    
+    function closeModal() {
+        document.getElementById('activity-modal').style.display = 'none';
+    }
+    
+    // Hiệu ứng hoa rơi
+    function createSakura() {
+        const container = document.querySelector('.sakura-container');
+        for (let i = 0; i < 30; i++) {
+            const sakura = document.createElement('div');
+            sakura.className = 'sakura';
+            sakura.style.left = Math.random() * 100 + '%';
+            sakura.style.animationDuration = 4 + Math.random() * 6 + 's';
+            sakura.style.animationDelay = Math.random() * 10 + 's';
+            sakura.style.width = 10 + Math.random() * 15 + 'px';
+            sakura.style.height = sakura.style.width;
+            container.appendChild(sakura);
+        }
+    }
+    
+    // Khởi tạo
+    document.addEventListener('DOMContentLoaded', () => {
+        createSakura();
+        loadReviews();
+        
+        const user = localStorage.getItem('username');
+        if (user) {
+            document.getElementById('username-display').innerText = user;
+        }
+        
+        // Chat input enter key
+        document.getElementById('chat-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    });
+    
+    // Đóng modal khi click bên ngoài
+    window.onclick = function(event) {
+        const modal = document.getElementById('activity-modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
