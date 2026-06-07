@@ -1,0 +1,28 @@
+{
+  "name": "sakura-festival-gigamall",
+  "version": "1.0.0",
+  "description": "Lễ hội Hoa Anh Đào Gigamall 2026 - CUNG ĐƯỜNG VÀNG SAKURA",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "axios": "^1.6.2",
+    "date-fns": "^2.30.0",
+    "lucide-react": "^0.292.0",
+    "tailwindcss": "^3.3.6",
+    "firebase": "^10.7.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.16"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vercel deploy"
+  }
+}
